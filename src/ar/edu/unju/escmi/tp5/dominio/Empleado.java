@@ -8,6 +8,15 @@ public class Empleado {
         this.nombre = nombre;
         this.apellido = apellido;
     }
+
+    public String getNombre() {
+    return nombre;
+}   
+
+    public String getApellido() {
+        return apellido;
+    }
+
 }
 
 // =============================
@@ -30,7 +39,9 @@ class EncargadoVentas extends Empleado {
     public int verificarStock(int codProducto) {
         return 0;
     }
+
 }
+
 
 // =============================
 // Agente Administrativo

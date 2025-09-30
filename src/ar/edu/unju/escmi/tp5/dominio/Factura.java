@@ -17,6 +17,10 @@ public class Factura {
         this.total = 0.0;
     }
 
+    public int getNroFactura() { return nroFactura; }
+    public Cliente getCliente() { return cliente; }
+    public double getTotal() { return total; }
+
     public void agregarDetalle(Producto producto, int cantidad) {
         DetalleFactura detalle = new DetalleFactura(producto, cantidad);
         detalles.add(detalle);
@@ -48,4 +52,5 @@ class DetalleFactura {
     public double calcularImporte() {
         return importe;
     }
+
 }

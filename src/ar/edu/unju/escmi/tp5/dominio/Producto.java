@@ -15,6 +15,12 @@ public class Producto {
         this.stock = stock;
     }
 
+    public int getCodigo() { return codigo; }
+    public String getDescripcion() { return descripcion; }
+    public double getPrecioUnitario() { return precioUnitario; }
+    public double getDescuento() { return descuento; }
+    public int getStock() { return stock; }
+
     public double getPrecioParaCliente(boolean esMayorista) {
         if (esMayorista) {
             return precioUnitario / 2; // precio al 50%
@@ -26,4 +32,6 @@ public class Producto {
     public void actualizarStock(int cantidad) {
         stock -= cantidad;
     }
+
+
 }

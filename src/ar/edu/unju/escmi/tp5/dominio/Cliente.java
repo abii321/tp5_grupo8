@@ -11,6 +11,10 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public String getNombre() { return nombre; }
+    public String getApellido() { return apellido; }
+    public String getTelefono() { return telefono; }
+
     // Método para que el cliente realice la compra
     public Factura comprar(Producto producto, int cantidad) {
         Factura factura = new Factura(this); // se crea factura para este cliente
@@ -60,4 +64,6 @@ class ClienteMinorista extends Cliente {
         }
         return total;
     }
+
+    
 }
