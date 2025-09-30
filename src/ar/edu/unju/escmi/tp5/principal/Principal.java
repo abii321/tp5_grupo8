@@ -16,10 +16,30 @@ public class Principal {
     }
 
     static void menuEncargadoVentas(){
-
+        Scanner sc = new Scanner(System.in);
+        int op;
+        do{
+            System.out.println("Menu de Encargado de Ventas");
+            System.out.println("1- Mostrar las ventas");
+            System.out.println("2- Mostrar  el total de todas las ventas");
+            System.out.println("3- Verficar stock de un producto");
+            System.out.println("4- Salir");
+            op = sc.nextInt(); sc.nextLine(); 
+        }while(op!=4);
+        sc.close();
     }
-    static void menuAdministrativo(){
 
+    static void menuAdministrativo(){
+        Scanner sc = new Scanner(System.in);
+        int op;
+        do{
+            System.out.println("Menu de Administrativo");
+            System.out.println("1- Alta de producto");
+            System.out.println("2- Realizar venta");
+            System.out.println("3- Salir");
+            op = sc.nextInt(); sc.nextLine();
+        }while(op!=3);
+        sc.close();
     }
 
     public static void main(String[] args) {
