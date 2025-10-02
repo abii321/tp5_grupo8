@@ -18,4 +18,6 @@ public abstract class Cliente {
     public Factura obtenerFactura(int nro) {
         return null; // se implementa luego
     }
+
+    
 }

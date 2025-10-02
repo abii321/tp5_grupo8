@@ -22,4 +22,6 @@ public class Producto {
     public void actualizarStock(int cantidad) {
         stock -= cantidad;
     }
+
+
 }

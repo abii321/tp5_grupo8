@@ -27,4 +27,5 @@ public class Factura {
     public void agregarDetalle(Producto producto, int cantidad) {
         detalles.add(new DetalleFactura(producto, cantidad));
     }
+
 }
