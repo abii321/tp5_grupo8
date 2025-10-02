@@ -1,26 +1,22 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public class Producto {
-    private int codigo;
-    private String descripcion;
-    private double precioUnitario;
-    private double descuento; // puede ser 0, 25 o 30
-    private int stock;
+    int codProducto;
+    String enDetalle;
+    double precioUnit;
+    double descuento; // 0, 0.25 o 0.30
+    int stock;
 
-    public Producto(int codigo, String descripcion, double precioUnitario, double descuento, int stock) {
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.precioUnitario = precioUnitario;
+    public Producto(int codProducto, String enDetalle, double precioUnit, double descuento, int stock) {
+        this.codProducto = codProducto;
+        this.enDetalle = enDetalle;
+        this.precioUnit = precioUnit;
         this.descuento = descuento;
         this.stock = stock;
     }
 
-    public double getPrecioParaCliente(boolean esMayorista) {
-        if (esMayorista) {
-            return precioUnitario / 2; // precio al 50%
-        } else {
-            return precioUnitario - (precioUnitario * descuento / 100);
-        }
+    public double precioConDescuento() {
+        return precioUnit - (precioUnit * descuento);
     }
 
     public void actualizarStock(int cantidad) {

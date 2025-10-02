@@ -4,48 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Factura {
-    private static int contador = 1;
-    private int nroFactura;
-    private Cliente cliente;
-    private List<DetalleFactura> detalles;
-    private double total;
+    int nroFactura;
+    String fecha;
+    double total;
+    Cliente cliente;
+    List<DetalleFactura> detalles = new ArrayList<>();
 
-    public Factura(Cliente cliente) {
-        this.nroFactura = contador++;
+    public Factura(int nroFactura, String fecha, Cliente cliente) {
+        this.nroFactura = nroFactura;
+        this.fecha = fecha;
         this.cliente = cliente;
-        this.detalles = new ArrayList<>();
-        this.total = 0.0;
-    }
-
-    public void agregarDetalle(Producto producto, int cantidad) {
-        DetalleFactura detalle = new DetalleFactura(producto, cantidad);
-        detalles.add(detalle);
-        total += detalle.calcularImporte();
-        producto.actualizarStock(cantidad); // importante: actualizar stock
     }
 
     public double calcularTotal() {
-        return cliente.calcularDesc(total); // aplica descuento si corresponde
-    }
-}
-
-// =============================
-// Detalle de la Factura
-// =============================
-class DetalleFactura {
-    private Producto producto;
-    private int cantidad;
-    private double precioUnit;
-    private double importe;
-
-    public DetalleFactura(Producto producto, int cantidad) {
-        this.producto = producto;
-        this.cantidad = cantidad;
-        this.precioUnit = producto.getPrecioParaCliente(false);
-        this.importe = precioUnit * cantidad;
+        total = 0;
+        for (DetalleFactura d : detalles) {
+            total += d.getImporte();
+        }
+        return cliente.calcularDesc(total);
     }
 
-    public double calcularImporte() {
-        return importe;
+    public void agregarDetalle(Producto producto, int cantidad) {
+        detalles.add(new DetalleFactura(producto, cantidad));
     }
 }
