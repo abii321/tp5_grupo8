@@ -7,26 +7,26 @@ public class CollectionEmpleado {
     public static ArrayList<Empleado> empleados = new ArrayList<>();
 
     public static void agregar(Empleado e) {
-        if (e != null) empleados.add(e);
+        if (e != null && !empleados.contains(e)) {
+            empleados.add(e);
+        }
     }
 
-    // Búsqueda por nombre + apellido (usa getters)
-    public static Empleado buscar(String nombre, String apellido) {
+    public static Empleado buscar(String usuarioEmpleado) {
         for (Empleado e : empleados) {
-            if (e != null
-                && e.getNombre() != null && e.getApellido() != null
-                && e.getNombre().equalsIgnoreCase(nombre)
-                && e.getApellido().equalsIgnoreCase(apellido)) {
+            if (e != null && e.getUsuarioEmpleado().equalsIgnoreCase(usuarioEmpleado)) {
                 return e;
             }
         }
         return null;
     }
 
-    public static ArrayList<Empleado> listar() { return empleados; }
+    public static boolean eliminar(String usuarioEmpleado) {
+        Empleado e = buscar(usuarioEmpleado);
+        return e != null && empleados.remove(e);
+    }
 
-    public static boolean eliminar(String nombre, String apellido) {
-        Empleado e = buscar(nombre, apellido);
-        return (e != null) && empleados.remove(e);
+    public static ArrayList<Empleado> listar() {
+        return empleados;
     }
 }

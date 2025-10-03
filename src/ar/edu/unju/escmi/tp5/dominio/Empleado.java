@@ -9,5 +9,7 @@ public abstract class Empleado {
         this.contrasena = contrasena;
     }
 
+    public String getUsuarioEmpleado() { return usuarioEmpleado; }
+
     public abstract void mostrarMenu();
 }

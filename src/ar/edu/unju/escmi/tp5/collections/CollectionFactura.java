@@ -6,8 +6,10 @@ import ar.edu.unju.escmi.tp5.dominio.Factura;
 public class CollectionFactura {
     public static ArrayList<Factura> facturas = new ArrayList<>();
 
-    public static void agregar(Factura f) {
-        if (f != null) facturas.add(f);
+    public static void agregar(Factura factura) {
+        if (factura != null && !facturas.contains(factura)) {
+            facturas.add(factura);
+        }
     }
 
     public static Factura buscar(int nroFactura) {
@@ -19,19 +21,19 @@ public class CollectionFactura {
         return null;
     }
 
-    public static ArrayList<Factura> listar() {
-        return facturas;
-    }
-
     public static boolean eliminar(int nroFactura) {
         Factura f = buscar(nroFactura);
-        return (f != null) && facturas.remove(f);
+        return f != null && facturas.remove(f);
+    }
+
+    public static ArrayList<Factura> listar() {
+        return facturas;
     }
 
     public static double totalVentas() {
         double total = 0;
         for (Factura f : facturas) {
-            if (f != null) total += f.calcularTotal();
+            total += f.calcularTotal();
         }
         return total;
     }
