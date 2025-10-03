@@ -28,4 +28,6 @@ public class Factura {
         detalles.add(new DetalleFactura(producto, cantidad));
     }
 
+    public int getNroFactura() { return nroFactura; }
+
 }

@@ -23,5 +23,5 @@ public class Producto {
         stock -= cantidad;
     }
 
-
+    public int getCodProducto() { return codProducto; }
 }
