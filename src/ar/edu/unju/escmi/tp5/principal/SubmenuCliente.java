@@ -9,9 +9,9 @@ import ar.edu.unju.escmi.tp5.dominio.Factura;
 public class SubmenuCliente {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Autenticacion");
-        System.out.println("Ingrese nombre: ");String nombre=sc.nextLine(); 
-        System.out.println("Ingrese contraseña: "); int passwd = sc.nextInt();
+        System.out.println("...Autenticacion...");
+        System.out.println("Ingrese nombre:");String nombre=sc.nextLine(); 
+        System.out.println("Ingrese contraseña:"); String passwd = sc.nextLine();
         
         if(CollectionCliente.autenticacion(nombre,passwd)){ // falta que lo hagan
             int op;

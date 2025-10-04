@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Factura {
     int nroFactura;
-    String fecha;
+    String fecha; // tiene q ser LocalDate
     double total;
     Cliente cliente;
     List<DetalleFactura> detalles = new ArrayList<>();
