@@ -10,9 +10,9 @@ import ar.edu.unju.escmi.tp5.dominio.Producto;
 public class SubmenuEncargVentas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Autenticacion");
+        System.out.println("...Autenticacion...");
         System.out.println("Ingrese nombre: ");String nombre=sc.nextLine(); 
-        System.out.println("Ingrese contraseña: "); int passwd = sc.nextInt();
+        System.out.println("Ingrese contraseña: "); String passwd = sc.nextLine();
         
         if(CollectionEmpleado.autenticacion(nombre,passwd)){ // falta que lo hagan
             int op;
@@ -37,8 +37,9 @@ public class SubmenuEncargVentas {
                 }
                 case 3:{
                     System.out.println("Ingrese codigo:"); String cod=sc.nextLine();
-                    // alguna funcion par obtener stock de un producto
-                    
+                    Producto p=CollectionProducto.obtener(cod); // falta q hagan este metodo
+                    if(p.getStock()>0) System.out.println(p.getStok()); // falta q hagan esto
+                    else System.out.println("El producto no tiene stock");
                     break;
                 }
                 case 4: System.out.println("Saliendo del rol encargado de ventas..."); break;

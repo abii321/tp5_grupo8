@@ -6,7 +6,7 @@ public class MenuPrincipal {
         Scanner sc = new Scanner(System.in);
         int op;
         do{
-            System.out.println("Sistema de Ventas");
+            System.out.println("......Sistema de Ventas......");
             System.out.println("1- Cliente");
             System.out.println("2- Encargado de ventas");
             System.out.println("3- Agente administrativo");

@@ -8,9 +8,9 @@ import ar.edu.unju.escmi.tp5.dominio.Producto;
 public class SubmenuAgenteAdmin {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Autenticacion");
+        System.out.println("...Autenticacion...");
         System.out.println("Ingrese nombre: ");String nombre=sc.nextLine(); 
-        System.out.println("Ingrese contraseña: "); int passwd = sc.nextInt();
+        System.out.println("Ingrese contraseña: "); String passwd = sc.nextLine();
         if(CollectionEmpleado.autenticacion(nombre,passwd)){ // falta que lo hagan
             int op;
             do{
@@ -35,7 +35,8 @@ public class SubmenuAgenteAdmin {
                     break;
                 }
                 case 2:{
-                    // pide id cliente, mañana
+                    System.out.println("Ingrese codigo del cliente:"); String cod=sc.nextLine(); 
+                    
                     break;
                 }
                 case 3: System.out.println("Saliendo del rol agente administrativo..."); break;
