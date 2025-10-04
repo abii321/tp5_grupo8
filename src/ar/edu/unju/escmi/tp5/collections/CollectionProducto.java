@@ -9,13 +9,6 @@ public class CollectionProducto {
 public static ArrayList<Producto> productos = new ArrayList<>();
 
 
-public static void agregar(Producto producto) {
-if (producto != null && !productos.contains(producto)) {
-productos.add(producto);
-}
-}
-
-
 public static Producto buscar(int codProducto) {
 for (Producto p : productos) {
 if (p != null && p.getCodProducto() == codProducto) {
@@ -26,18 +19,7 @@ return null;
 }
 
 
-public static boolean eliminar(int codProducto) {
-Producto p = buscar(codProducto);
-return p != null && productos.remove(p);
-}
-
-
 public static ArrayList<Producto> listar() {
 return productos;
-}
-
-
-public static boolean contiene(Producto producto) {
-return productos.contains(producto);
 }
 }
