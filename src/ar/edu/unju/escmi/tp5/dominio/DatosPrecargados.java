@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatosPrecargados {
-    
-    // Listas estáticas de clientes precargados
-    public static List<ClienteMinorista> clientesMinoristas = new ArrayList<>();
-    public static List<ClienteMayorista> clientesMayoristas = new ArrayList<>();
 
-    // Bloque estático que se ejecuta al cargar la clase
+    public static List<Cliente> clientes = new ArrayList<>();
+
     static {
-        // Precarga de clientes minoristas
-        clientesMinoristas.add(new ClienteMinorista("Pérez", "Juan", 3885123456L, 12345678, false));
-        clientesMinoristas.add(new ClienteMinorista("López", "María", 3885234567L, 23456789, true));
-        clientesMinoristas.add(new ClienteMinorista("García", "Carlos", 3885345678L, 34567890, false));
-        clientesMinoristas.add(new ClienteMinorista("Martínez", "Ana", 3885456789L, 45678901, true));
+        // Clientes minoristas
+        clientes.add(new ClienteMinorista("Pérez", "Juan", 3885123456L, 12345678, false));
+        clientes.add(new ClienteMinorista("López", "María", 3885234567L, 23456789, true));
+        clientes.add(new ClienteMinorista("García", "Carlos", 3885345678L, 34567890, false));
+        clientes.add(new ClienteMinorista("Martínez", "Ana", 3885456789L, 45678901, true));
 
-        // Precarga de clientes mayoristas
-        clientesMayoristas.add(new ClienteMayorista("Distribuidora", "Norte", 3885001111L, 1001));
-        clientesMayoristas.add(new ClienteMayorista("Supermercado", "La Estrella", 3885002222L, 1002));
-        clientesMayoristas.add(new ClienteMayorista("Mayorista", "Central", 3885003333L, 1003));
+        // Clientes mayoristas
+        clientes.add(new ClienteMayorista("Distribuidora", "Norte", 3885001111L, 1001));
+        clientes.add(new ClienteMayorista("Supermercado", "La Estrella", 3885002222L, 1002));
+        clientes.add(new ClienteMayorista("Mayorista", "Central", 3885003333L, 1003));
     }
 
-    // Métodos para acceder a las listas
-    public static List<ClienteMinorista> getClientesMinoristas() {
-        return clientesMinoristas;
+    public static List<Cliente> getClientes() {
+        return clientes;
     }
 
-    public static List<ClienteMayorista> getClientesMayoristas() {
-        return clientesMayoristas;
+    public static Cliente buscarCliente(String nombre, String apellido) {
+        for (Cliente c : clientes) {
+            if (c.getNombre().equalsIgnoreCase(nombre) && c.getApellido().equalsIgnoreCase(apellido)) {
+                return c;
+            }
+        }
+        return null;
     }
 }
