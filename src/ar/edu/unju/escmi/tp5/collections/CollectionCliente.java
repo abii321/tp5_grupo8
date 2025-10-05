@@ -22,4 +22,16 @@ return null;
 public static ArrayList<Cliente> listar() {
 return clientes;
 }
+
+public static Cliente buscarPorNombre(String nombre, String apellido) {
+    for (Cliente c : clientes) {
+        if (c != null 
+            && c.getNombre().equalsIgnoreCase(nombre) 
+            && c.getApellido().equalsIgnoreCase(apellido)) {
+            return c;
+        }
+    }
+    return null;
+}
+
 }
