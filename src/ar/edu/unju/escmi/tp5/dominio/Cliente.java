@@ -19,7 +19,14 @@ public abstract class Cliente {
         return null; // se implementa luego
     }
 
-    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
 }
+
 
 

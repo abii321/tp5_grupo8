@@ -11,5 +11,7 @@ public abstract class Empleado {
 
     public String getUsuarioEmpleado() { return usuarioEmpleado; }
 
+    public String getContrasena() { return contrasena;}
+
     public abstract void mostrarMenu();
 }
