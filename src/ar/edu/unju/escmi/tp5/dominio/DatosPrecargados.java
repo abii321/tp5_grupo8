@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatosPrecargados {
-
-    public static List<Cliente> clientes = new ArrayList<>();
+    
+    public static List<ClienteMinorista> clientesMinoristas = new ArrayList<>();
+    public static List<ClienteMayorista> clientesMayoristas = new ArrayList<>();
+    public static List<Empleado> empleados = new ArrayList<>();
 
     static {
         // Clientes minoristas
@@ -14,14 +16,20 @@ public class DatosPrecargados {
         clientes.add(new ClienteMinorista("García", "Carlos", 3885345678L, 34567890, false));
         clientes.add(new ClienteMinorista("Martínez", "Ana", 3885456789L, 45678901, true));
 
-        // Clientes mayoristas
-        clientes.add(new ClienteMayorista("Distribuidora", "Norte", 3885001111L, 1001));
-        clientes.add(new ClienteMayorista("Supermercado", "La Estrella", 3885002222L, 1002));
-        clientes.add(new ClienteMayorista("Mayorista", "Central", 3885003333L, 1003));
+        // Precarga de clientes mayoristas
+        clientesMayoristas.add(new ClienteMayorista("Distribuidora", "Norte", 3885001111L, 1001));
+        clientesMayoristas.add(new ClienteMayorista("Supermercado", "La Estrella", 3885002222L, 1002));
+        clientesMayoristas.add(new ClienteMayorista("Mayorista", "Central", 3885003333L, 1003));
+
+        // Precarga de empleados
+        empleados.add(new EncargadoDeVentas("ventas1", "1234"));
+        empleados.add(new EncargadoDeVentas("ventas2", "abcd"));
+        empleados.add(new AgenteAdministrativo("admin1", "5678"));
+        empleados.add(new AgenteAdministrativo("admin2", "efgh"));
     }
 
-    public static List<Cliente> getClientes() {
-        return clientes;
+    public static List<ClienteMinorista> getClientesMinoristas() {
+        return clientesMinoristas;
     }
 
     public static Cliente buscarCliente(String nombre, String apellido) {
@@ -31,5 +39,9 @@ public class DatosPrecargados {
             }
         }
         return null;
+    }
+
+    public static List<Empleado> getEmpleados() {
+        return empleados;
     }
 }

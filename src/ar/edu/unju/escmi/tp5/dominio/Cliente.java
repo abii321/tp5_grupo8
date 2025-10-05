@@ -26,3 +26,4 @@ public abstract class Cliente {
     public String getNombre() { return nombre; }
     public long getTelefono() { return telefono; }
 }
+

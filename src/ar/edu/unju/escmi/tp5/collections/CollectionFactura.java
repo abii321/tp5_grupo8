@@ -1,38 +1,43 @@
 package ar.edu.unju.escmi.tp5.collections;
 
+
 import java.util.ArrayList;
 import ar.edu.unju.escmi.tp5.dominio.Factura;
 
+
 public class CollectionFactura {
-    public static ArrayList<Factura> facturas = new ArrayList<>();
+public static ArrayList<Factura> facturas = new ArrayList<>();
 
-    public static void agregar(Factura f) {
-        if (f != null) facturas.add(f);
-    }
 
-    public static Factura buscar(int nroFactura) {
-        for (Factura f : facturas) {
-            if (f != null && f.getNroFactura() == nroFactura) {
-                return f;
-            }
-        }
-        return null;
-    }
+public static void agregar(Factura factura) {
+if (factura != null && !facturas.contains(factura)) {
+facturas.add(factura);
+}
+}
 
-    public static ArrayList<Factura> listar() {
-        return facturas;
-    }
 
-    public static boolean eliminar(int nroFactura) {
-        Factura f = buscar(nroFactura);
-        return (f != null) && facturas.remove(f);
-    }
+public static Factura buscar(int nroFactura) {
+for (Factura f : facturas) {
+if (f != null && f.getNroFactura() == nroFactura) {
+return f;
+}
+}
+return null;
+}
 
-    public static double totalVentas() {
-        double total = 0;
-        for (Factura f : facturas) {
-            if (f != null) total += f.calcularTotal();
-        }
-        return total;
-    }
+
+public static ArrayList<Factura> listar() {
+return facturas;
+}
+
+
+public static double mostrarTotalVentas() {
+double total = 0;
+for (Factura f : facturas) {
+if (f != null) {
+total += f.calcularTotal();
+}
+}
+return total;
+}
 }
