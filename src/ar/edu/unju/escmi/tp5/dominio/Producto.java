@@ -1,27 +1,43 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public class Producto {
-    int codProducto;
-    String enDetalle;
-    double precioUnit;
-    double descuento; // 0, 0.25 o 0.30
-    int stock;
+    private int codProducto;
+    private String descripcion;
+    private double precioUnit;
+    private int descuento; // 0, 25 o 30
+    private int stock;
 
-    public Producto(int codProducto, String enDetalle, double precioUnit, double descuento, int stock) {
+    public Producto(int codProducto, String descripcion, double precioUnit, int descuento, int stock) {
         this.codProducto = codProducto;
-        this.enDetalle = enDetalle;
+        this.descripcion = descripcion;
         this.precioUnit = precioUnit;
         this.descuento = descuento;
         this.stock = stock;
     }
 
     public double precioConDescuento() {
-        return precioUnit - (precioUnit * descuento);
+        if (descuento == 0) return precioUnit;
+        return precioUnit - (precioUnit * descuento / 100);
     }
 
-    public void actualizarStock(int cantidad) {
-        stock -= cantidad;
+    public void actualizarStock(int cantidadVendida) {
+        if (cantidadVendida > 0 && cantidadVendida <= stock) {
+            stock -= cantidadVendida;
+        } else {
+            System.out.println("⚠️ Stock insuficiente o cantidad inválida.");
+        }
     }
 
+    // Getters y Setters
     public int getCodProducto() { return codProducto; }
+    public String getDescripcion() { return descripcion; }
+    public double getPrecioUnit() { return precioUnit; }
+    public int getDescuento() { return descuento; }
+    public int getStock() { return stock; }
+    public void setStock(int stock) { this.stock = stock; }
+
+    @Override
+    public String toString() {
+        return "[" + codProducto + "] " + descripcion + " - $" + precioUnit + " (Stock: " + stock + ")";
+    }
 }
