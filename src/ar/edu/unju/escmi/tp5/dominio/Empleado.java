@@ -16,12 +16,4 @@ public abstract class Empleado {
     public String getContrasenia() {
         return contrasenia;
     }
-    
-
-    /*public boolean tieneAccesoEmpleado() { return true; }
-    public boolean tieneAccesoCliente() { return false; }
-
-    public abstract void mostrarMenu();
-
-    public String getUsuarioEmpleado() { return usuarioEmpleado; }*/
 }

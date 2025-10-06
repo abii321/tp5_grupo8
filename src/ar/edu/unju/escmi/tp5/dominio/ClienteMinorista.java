@@ -4,11 +4,15 @@ public class ClienteMinorista extends Cliente {
     private int dni; 
     private boolean tienePAMI;
 
-    public ClienteMinorista(String apellido, String nombre, long telefono, String contrasenia, int dni,
+    public ClienteMinorista(String apellido, String nombre, String direccion, String contrasenia, int dni,
             boolean tienePAMI) {
-        super(apellido, nombre, telefono, contrasenia);
+        super(apellido, nombre, direccion, contrasenia);
         this.dni = dni;
         this.tienePAMI = tienePAMI;
+    }
+
+    public boolean tieneObraSocial(){
+        return tienePAMI;
     }
 
     @Override
@@ -16,15 +20,4 @@ public class ClienteMinorista extends Cliente {
         return dni;
     }
 
-
-    @Override
-    public double calcularDesc(double total) {
-        if (tienePAMI) {
-            return total * 0.9; // 10% descuento
-        }
-        return total;
-    }
-
-    /*public int getDni() { return dni; }
-    public boolean isTienePAMI() { return tienePAMI; }*/
 }
