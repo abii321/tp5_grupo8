@@ -1,22 +1,27 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public abstract class Empleado {
-    protected String usuarioEmpleado;
-    protected String contrasena;
+    protected String nombre;
+    protected String contrasenia;
 
-    public Empleado(String usuarioEmpleado, String contrasena) {
-        this.usuarioEmpleado = usuarioEmpleado;
-        this.contrasena = contrasena;
+    public Empleado(String nombre, String contrasenia) {
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
     }
 
-    public boolean autenticar(String usuario, String pass) {
-        return usuarioEmpleado.equals(usuario) && contrasena.equals(pass);
+    public String getNombre() {
+        return nombre;
     }
 
-    public boolean tieneAccesoEmpleado() { return true; }
+    public String getContrasenia() {
+        return contrasenia;
+    }
+    
+
+    /*public boolean tieneAccesoEmpleado() { return true; }
     public boolean tieneAccesoCliente() { return false; }
 
     public abstract void mostrarMenu();
 
-    public String getUsuarioEmpleado() { return usuarioEmpleado; }
+    public String getUsuarioEmpleado() { return usuarioEmpleado; }*/
 }

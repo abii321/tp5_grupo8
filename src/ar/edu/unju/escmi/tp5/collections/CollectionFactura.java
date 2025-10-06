@@ -12,7 +12,6 @@ public class CollectionFactura {
         }
     }
 
-
     public static Factura buscar(int nroFactura) {
         for (Factura f : facturas) {
             if (f != null && f.getNroFactura() == nroFactura) 
@@ -21,8 +20,13 @@ public class CollectionFactura {
         return null;
     }
 
+    public static void listar(){
+        for(int i=0; i<facturas.size(); i++){
+            facturas.get(i).mostrar();
+        }
+    }
 
-    /*public static double mostrarTotalVentas() {
+    public static double totalVentas() {
         double total = 0;
         for (Factura f : facturas) {
             if (f != null) {
@@ -30,5 +34,5 @@ public class CollectionFactura {
             }
         }
         return total;
-    }*/
+    }
 }

@@ -12,11 +12,6 @@ public class CollectionCliente {
 
     // Precarga de clientes
     static {
-        /*Cliente c1 = new ClienteMayorista(1, "1234", "Gomez", "Ana", 3885123456L);
-        Cliente c2 = new Cliente(2, "5678", "Perez", "Juan", 3884234567L);
-        Cliente c3 = new Cliente(3, "9012", "Lopez", "Maria", 3884345678L);*/
-        
-
         Cliente c1 = new ClienteMayorista("Gomez", "Ana", 3885123456L, "1234", 1);
         Cliente c2 = new ClienteMayorista("Perez", "Juan", 3884234567L, "5678", 2);
         Cliente c3 = new ClienteMayorista("Lopez", "Maria", 3884345678L, "9012", 3);
