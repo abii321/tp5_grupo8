@@ -1,14 +1,12 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
-import java.util.List;
-
 public class EncargadoDeVentas extends Empleado {
-
+    
     public EncargadoDeVentas(String usuarioEmpleado, String contrasena) {
         super(usuarioEmpleado, contrasena);
     }
 
-    public void mostrarVentas(List<Factura> facturas) {
+    /*public void mostrarVentas(List<Factura> facturas) {
         System.out.println("📋 Listado de ventas:");
         for (Factura f : facturas) {
             System.out.println(f.mostrarFactura());
@@ -34,5 +32,5 @@ public class EncargadoDeVentas extends Empleado {
         System.out.println("1. Mostrar ventas");
         System.out.println("2. Mostrar total de ventas");
         System.out.println("3. Verificar stock");
-    }
+    }*/
 }

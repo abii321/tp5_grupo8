@@ -6,7 +6,7 @@ public class AgenteAdministrativo extends Empleado {
         super(usuarioEmpleado, contrasena);
     }
 
-    public void altaProducto(Producto producto) {
+    /*public void altaProducto(Producto producto) {
         System.out.println("✅ Producto dado de alta: " + producto);
     }
 
@@ -19,5 +19,5 @@ public class AgenteAdministrativo extends Empleado {
         System.out.println("=== Menú Agente Administrativo ===");
         System.out.println("1. Alta de producto");
         System.out.println("2. Realizar venta");
-    }
+    }*/
 }
