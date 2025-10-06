@@ -1,14 +1,21 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public class ClienteMinorista extends Cliente {
-    private int dni;
+    private int dni; 
     private boolean tienePAMI;
 
-    public ClienteMinorista(String apellido, String nombre, long telefono, int dni, boolean tienePAMI) {
-        super(apellido, nombre, telefono);
+    public ClienteMinorista(String apellido, String nombre, long telefono, String contrasenia, int dni,
+            boolean tienePAMI) {
+        super(apellido, nombre, telefono, contrasenia);
         this.dni = dni;
         this.tienePAMI = tienePAMI;
     }
+
+    @Override
+    public int getCodCliente() {
+        return dni;
+    }
+
 
     @Override
     public double calcularDesc(double total) {
@@ -18,6 +25,6 @@ public class ClienteMinorista extends Cliente {
         return total;
     }
 
-    public int getDni() { return dni; }
-    public boolean isTienePAMI() { return tienePAMI; }
+    /*public int getDni() { return dni; }
+    public boolean isTienePAMI() { return tienePAMI; }*/
 }

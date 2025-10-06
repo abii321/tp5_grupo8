@@ -15,9 +15,9 @@ public class MenuPrincipal {
             op = sc.nextInt(); sc.nextLine();     
 
             switch(op){
-                case 1: SubmenuCliente.main(args);; break;
-                case 2: SubmenuEncargVentas.main(args); break;
-                case 3: SubmenuAgenteAdmin.main(args);; break;
+                case 1: SubmenuCliente.main(sc);; break;
+                case 2: SubmenuEncargVentas.main(sc); break;
+                case 3: SubmenuAgenteAdmin.main(sc); break;
                 case 4: System.out.println("Saliendo del sistema"); break;
                 default: System.out.println("Opcion invalida"); break;
             }

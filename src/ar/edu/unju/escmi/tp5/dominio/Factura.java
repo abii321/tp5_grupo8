@@ -11,7 +11,11 @@ public class Factura {
     private Cliente cliente;
     private List<DetalleFactura> detalles;
 
-    public Factura(int nroFactura, Cliente cliente) {
+    public int getNroFactura() {
+        return nroFactura;
+    }
+
+    /*public Factura(int nroFactura, Cliente cliente) {
         this.nroFactura = nroFactura;
         this.cliente = cliente;
         this.fecha = LocalDate.now();
@@ -25,7 +29,8 @@ public class Factura {
         } else {
             System.out.println("❌ No hay suficiente stock de " + producto.getDescripcion());
         }
-    }
+    }*/
+
 
     public double calcularTotal() {
         total = 0;
@@ -36,7 +41,7 @@ public class Factura {
         return total;
     }
 
-    public String mostrarFactura() {
+    public String mostrar() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n🧾 FACTURA N° ").append(nroFactura)
           .append("\nFecha: ").append(fecha)
@@ -49,7 +54,7 @@ public class Factura {
         return sb.toString();
     }
 
-    public int getNroFactura() { return nroFactura; }
+    /*public int getNroFactura() { return nroFactura; }
     public Cliente getCliente() { return cliente; }
-    public double getTotal() { return total; }
+    public double getTotal() { return total; }*/
 }

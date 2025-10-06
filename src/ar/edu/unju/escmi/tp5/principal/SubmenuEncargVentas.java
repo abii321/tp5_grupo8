@@ -8,8 +8,7 @@ import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
 import ar.edu.unju.escmi.tp5.dominio.Producto;
 
 public class SubmenuEncargVentas {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(Scanner sc) {
         System.out.println("...Autenticacion...");
         System.out.println("Ingrese nombre: ");String nombre=sc.nextLine(); 
         System.out.println("Ingrese contraseña: "); String passwd = sc.nextLine();
@@ -49,6 +48,5 @@ public class SubmenuEncargVentas {
         else{
             System.out.println("Autenticacion fallida. Intente mas tarde");
         }
-        sc.close();
     }
 }
