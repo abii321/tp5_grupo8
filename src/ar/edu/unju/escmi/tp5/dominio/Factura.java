@@ -5,56 +5,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Factura {
-    private int nroFactura;
+    private static int nroFactura = 0; 
+    private int numero;
+    private int cliente;
     private LocalDate fecha;
     private double total;
-    private Cliente cliente;
     private List<DetalleFactura> detalles;
 
-    public int getNroFactura() {
-        return nroFactura;
-    }
-
-    /*public Factura(int nroFactura, Cliente cliente) {
-        this.nroFactura = nroFactura;
-        this.cliente = cliente;
-        this.fecha = LocalDate.now();
+    public Factura() {
+        nroFactura++;
+        this.numero=nroFactura;
         this.detalles = new ArrayList<>();
     }
-
-    public void agregarDetalle(Producto producto, int cantidad) {
-        if (producto.getStock() >= cantidad) {
-            producto.actualizarStock(cantidad);
-            detalles.add(new DetalleFactura(producto, cantidad));
-        } else {
-            System.out.println("❌ No hay suficiente stock de " + producto.getDescripcion());
-        }
-    }*/
-
-
-    public double calcularTotal() {
-        total = 0;
-        for (DetalleFactura d : detalles) {
-            total += d.calcularSubtotal();
-        }
-        total = cliente.calcularDesc(total);
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+    public void setCliente(int cliente) {
+        this.cliente = cliente;
+    }
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    public void setDetalles(List<DetalleFactura> detalles) {
+        this.detalles = detalles;
+    }
+    
+    public int getNumero() {
+        return numero;
+    }
+    public List<DetalleFactura> getDetalles() {
+        return detalles;
+    }
+    public double getTotal() {
         return total;
     }
-
-    public String mostrar() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n🧾 FACTURA N° ").append(nroFactura)
-          .append("\nFecha: ").append(fecha)
-          .append("\nCliente: ").append(cliente.getNombre()).append(" ").append(cliente.getApellido())
-          .append("\n----------------------------------\n");
-        for (DetalleFactura d : detalles) {
-            sb.append(d.toString()).append("\n");
-        }
-        sb.append("----------------------------------\nTOTAL: $").append(calcularTotal());
-        return sb.toString();
+    
+    @Override
+    public String toString() {
+        return "Factura [numero=" + numero + ", cliente=" + cliente + ", fecha=" + fecha + ", total=" + total + "]";
     }
-
-    /*public int getNroFactura() { return nroFactura; }
-    public Cliente getCliente() { return cliente; }
-    public double getTotal() { return total; }*/
 }

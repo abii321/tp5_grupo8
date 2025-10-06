@@ -8,7 +8,7 @@ import ar.edu.unju.escmi.tp5.dominio.Empleado;
 import ar.edu.unju.escmi.tp5.dominio.EncargadoDeVentas;
 
 public class CollectionEmpleado {
-    public static List<Empleado> empleados = new ArrayList<>();
+    private static List<Empleado> empleados = new ArrayList<>();
 
     // Precarga de empleados
     static {
@@ -19,7 +19,7 @@ public class CollectionEmpleado {
         empleados.add(e2);
         empleados.add(e3);
         
-        Empleado e4 = new AgenteAdministrativo("Franco", "3498");
+        Empleado e4 = new AgenteAdministrativo("Franco", "1234");
         Empleado e5 = new AgenteAdministrativo("Angel", "3456");
         Empleado e6 = new AgenteAdministrativo("Juan", "7823");
         empleados.add(e4);

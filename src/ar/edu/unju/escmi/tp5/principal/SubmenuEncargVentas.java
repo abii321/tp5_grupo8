@@ -26,7 +26,7 @@ public class SubmenuEncargVentas {
 
                 switch(op){
                     case 1:{
-                        if(CollectionFactura.facturas.size()==0) System.out.println("No hay ninguna factura");
+                        if(CollectionFactura.tamanio()==0) System.out.println("No hay ninguna factura");
                         else CollectionFactura.listar();
                         break;
                     }
@@ -38,7 +38,7 @@ public class SubmenuEncargVentas {
                         System.out.println("Ingrese codigo:"); int cod=sc.nextInt(); sc.nextLine();
                         Producto p=CollectionProducto.buscar(cod);
                         if(p==null) System.out.println("El producto no existe");
-                        else if(p.getStock()>0) System.out.println(p.getStock()); 
+                        else if(p.getStock()>0) System.out.println("Stock actual: "+ p.getStock()); 
                         else System.out.println("El producto no tiene stock");
                         break;
                     }

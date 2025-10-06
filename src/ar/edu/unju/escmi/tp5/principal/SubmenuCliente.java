@@ -27,7 +27,7 @@ public class SubmenuCliente {
                         System.out.println("Ingrese numero de factura: "); int nroFactura= sc.nextInt(); sc.nextLine();
                         Factura f = CollectionFactura.buscar(nroFactura);
                         if( f !=null){
-                            f.mostrar();
+                            System.out.println(f.toString());
                         } else {
                             System.out.println("Factura no encontrada");
                         }
