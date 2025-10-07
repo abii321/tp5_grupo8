@@ -19,17 +19,6 @@ public class CollectionFactura {
         }
         return null;
     }
-
-    public static int tamanio(){
-        return facturas.size();
-    }
-
-    public static void listar(){
-        for(int i=0; i<facturas.size(); i++){
-            System.out.println(facturas.get(i).toString());
-        }
-    }
-
     public static double totalVentas() {
         double total = 0;
         for (Factura f : facturas) {
@@ -37,5 +26,16 @@ public class CollectionFactura {
                 total += f.getTotal();
         }
         return total;
+    }
+
+    public static void mostrar(){
+        if(facturas.isEmpty()) System.out.println("No hay ninguna factura");
+        else CollectionFactura.listar();
+    }
+
+    private static void listar(){
+        for(int i=0; i<facturas.size(); i++){
+            System.out.println(facturas.get(i).toString());
+        }
     }
 }

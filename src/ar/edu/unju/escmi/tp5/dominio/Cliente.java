@@ -28,6 +28,7 @@ public abstract class Cliente {
     }
 
     public abstract boolean tieneObraSocial();
-
+    public abstract double calcularSubtotal(Producto p, int cantidad);
+    public abstract boolean comprobarStock(Producto p, int cantidad);
 }
 

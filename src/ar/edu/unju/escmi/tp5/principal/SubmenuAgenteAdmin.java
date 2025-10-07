@@ -1,5 +1,4 @@
 package ar.edu.unju.escmi.tp5.principal;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 import ar.edu.unju.escmi.tp5.collections.*;
@@ -36,70 +35,36 @@ public class SubmenuAgenteAdmin {
                     case 2:{
                         System.out.println("Ingrese codigo/DNI del cliente segun corresponda:"); int cod=sc.nextInt(); sc.nextLine(); 
                         Cliente c = CollectionCliente.buscar(cod);
+                        
                         if(c==null) {
                             System.out.println("El cliente no existe");
                             break;
                         }
 
+                        Factura factura = new Factura(c);
                         String ans="si";
-                        Factura factura = new Factura();
-                        factura.setCliente(cod);
-                        factura.setFecha(LocalDate.now());
-                        Producto p;
-                        boolean compraExitosa = false;
                         do{ 
                             System.out.println("Ingrese codigo de producto: ");
                             cod = sc.nextInt(); sc.nextLine();
-                            p = CollectionProducto.buscar(cod);
-                            if(p==null){
+                            Producto p = CollectionProducto.buscar(cod);
+                            if(p==null) {
                                 System.out.println("El producto no existe");
+                                continue;
                             }
-                            else{
-                                System.out.println("Ingrese cantidad:");
-                                int cant = sc.nextInt(); sc.nextLine();
-                                if( (c instanceof ClienteMinorista && cant> p.getStock() ) || 
-                                    (c instanceof ClienteMayorista && cant*10 > p.getStock()) ) {
-                                    System.out.println("No hay suficiente stock");
-                                    
-                                }
-                                else {
-                                    DetalleFactura detalle = new DetalleFactura();
-                                    detalle.setProducto(p);
-                                    detalle.setCantidad(cant);
-                                    if ( c instanceof ClienteMayorista ){
-                                        detalle.setSubtotal(p.getPrecioUnit()/2*(cant*10));
-                                        p.setStock(p.getStock()-cant*10);
-                                    }
-                                    else{
-                                        detalle.setSubtotal(p.getPrecioUnit()*cant);
-                                        p.setStock(p.getStock()-cant);
-                                    }
-                                    factura.getDetalles().add(detalle);
-                                    compraExitosa=true;
-                                }
-                            }
+                            
+                            System.out.println("Ingrese cantidad:");
+                            int cant = sc.nextInt(); sc.nextLine();
+
+                            factura.agregarProducto(p, cant);
+                            
                             System.out.println("¿Desea agregar otro producto?");
                             ans = sc.nextLine();
                         }while(ans.equalsIgnoreCase("si"));
 
-                        if(!compraExitosa) continue;
-                        
-                        double total = 0;
-                        for( DetalleFactura d : factura.getDetalles() )
-                            total+=d.getSubtotal();
-                        
-                        // descuento del producto
-                        if( p.getDescuento()>0)
-                            factura.setTotal( p.getDescuento()*total/100 );
-                        else 
-                            factura.setTotal(total);
-
-                        // descuento de obra social
-                        if( c.tieneObraSocial() ) factura.setTotal(total/10);
-
+                        factura.calcularTotal();
+                        CollectionFactura.agregar(factura);
                         System.out.println("Codigo de factura: "+factura.getNumero());
                         System.out.println("Monto total de la compra: "+factura.getTotal()); 
-                        CollectionFactura.agregar(factura);
                         break;
                     }   
                     case 3: System.out.println("Saliendo del rol agente administrativo..."); break;

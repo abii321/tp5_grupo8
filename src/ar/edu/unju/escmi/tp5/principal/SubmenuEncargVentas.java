@@ -2,10 +2,7 @@ package ar.edu.unju.escmi.tp5.principal;
 
 import java.util.Scanner;
 
-import ar.edu.unju.escmi.tp5.collections.CollectionEmpleado;
-import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
-import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
-import ar.edu.unju.escmi.tp5.dominio.Producto;
+import ar.edu.unju.escmi.tp5.collections.*;
 
 public class SubmenuEncargVentas {
     public static void main(Scanner sc) {
@@ -25,21 +22,11 @@ public class SubmenuEncargVentas {
                 op = sc.nextInt(); sc.nextLine(); 
 
                 switch(op){
-                    case 1:{
-                        if(CollectionFactura.tamanio()==0) System.out.println("No hay ninguna factura");
-                        else CollectionFactura.listar();
-                        break;
-                    }
-                    case 2:{
-                        System.out.println(CollectionFactura.totalVentas());
-                        break;
-                    }
-                    case 3:{
+                    case 1: CollectionFactura.mostrar(); break;
+                    case 2: System.out.println( "Total de todas las ventas: "+CollectionFactura.totalVentas() ); break;
+                    case 3: {
                         System.out.println("Ingrese codigo:"); int cod=sc.nextInt(); sc.nextLine();
-                        Producto p=CollectionProducto.buscar(cod);
-                        if(p==null) System.out.println("El producto no existe");
-                        else if(p.getStock()>0) System.out.println("Stock actual: "+ p.getStock()); 
-                        else System.out.println("El producto no tiene stock");
+                        CollectionProducto.verificarStock(cod); 
                         break;
                     }
                     case 4: System.out.println("Saliendo del rol encargado de ventas..."); break;

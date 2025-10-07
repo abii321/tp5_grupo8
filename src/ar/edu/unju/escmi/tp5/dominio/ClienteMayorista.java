@@ -16,4 +16,10 @@ public class ClienteMayorista extends Cliente {
     public int getCodCliente() {
         return codCliente;
     }
+    public double calcularSubtotal(Producto p, int cantidad) {
+        return p.getPrecioUnit() * (cantidad * 10) / 2; 
+    }
+    public boolean comprobarStock(Producto p, int cantidad){
+        return cantidad*10<=p.getStock();
+    }
 }

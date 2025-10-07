@@ -19,5 +19,10 @@ public class DetalleFactura {
     public double getSubtotal() {
         return subtotal;
     }
-    
+    public Producto getProducto() {
+        return producto;
+    }
+    public double getCantidad(){
+        return cantidad;
+    }
 }

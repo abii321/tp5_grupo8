@@ -18,5 +18,11 @@ public class CollectionProducto {
     public static void agregar(Producto p){
         productos.add(p);
     }
-
+    
+    public static void verificarStock(int cod){
+        Producto p=buscar(cod);
+        if(p==null) System.out.println("El producto no existe");
+        else if(p.getStock()>0) System.out.println("Stock actual: "+ p.getStock()); 
+        else System.out.println("El producto no tiene stock");
+    }
 }
