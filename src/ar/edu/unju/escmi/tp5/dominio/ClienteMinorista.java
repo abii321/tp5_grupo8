@@ -19,5 +19,11 @@ public class ClienteMinorista extends Cliente {
     public int getCodCliente() {
         return dni;
     }
+    public double calcularSubtotal(Producto p, int cantidad) {
+        return p.getPrecioUnit() * cantidad;
+    }
+    public boolean comprobarStock(Producto p, int cantidad){
+        return cantidad<=p.getStock();
+    }
 
 }

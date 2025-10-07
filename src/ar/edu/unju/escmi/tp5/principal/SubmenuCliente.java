@@ -26,11 +26,8 @@ public class SubmenuCliente {
                     case 1: {
                         System.out.println("Ingrese numero de factura: "); int nroFactura= sc.nextInt(); sc.nextLine();
                         Factura f = CollectionFactura.buscar(nroFactura);
-                        if( f !=null){
-                            System.out.println(f.toString());
-                        } else {
-                            System.out.println("Factura no encontrada");
-                        }
+                        if( f !=null) System.out.println(f.toString());
+                        else System.out.println("Factura no encontrada");
                         break;
                     }
                     case 2: System.out.println("Saliendo del rol cliente..."); break;
