@@ -28,8 +28,7 @@ public class SubmenuAgenteAdmin {
                         System.out.println("Ingrese precio unitario:"); p.setPrecioUnit(sc.nextInt()); sc.nextLine();
                         System.out.println("Ingrese descuento:"); p.setDescuento(sc.nextInt()); sc.nextLine();
                         System.out.println("Ingrese stock:"); p.setStock(sc.nextInt()); sc.nextLine();
-                        CollectionProducto.agregar(p);
-                        System.out.println("Producto agregado correctamente. Codigo asignado: "+p.getCodigo());
+                        AgenteAdministrativo.altaProducto(p);
                         break;
                     }
                     case 2:{
@@ -61,10 +60,7 @@ public class SubmenuAgenteAdmin {
                             ans = sc.nextLine();
                         }while(ans.equalsIgnoreCase("si"));
 
-                        factura.calcularTotal();
-                        CollectionFactura.agregar(factura);
-                        System.out.println("Codigo de factura: "+factura.getNumero());
-                        System.out.println("Monto total de la compra: "+factura.getTotal()); 
+                        AgenteAdministrativo.realizarVenta(factura);
                         break;
                     }   
                     case 3: System.out.println("Saliendo del rol agente administrativo..."); break;

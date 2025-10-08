@@ -1,5 +1,7 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
+
 public abstract class Cliente {
     private String apellido;
     private String nombre;
@@ -30,5 +32,12 @@ public abstract class Cliente {
     public abstract boolean tieneObraSocial();
     public abstract double calcularSubtotal(Producto p, int cantidad);
     public abstract boolean comprobarStock(Producto p, int cantidad);
+
+    public static void buscarFactura(int nroFactura){
+        Factura f = CollectionFactura.buscar(nroFactura);
+        if( f !=null) System.out.println(f.toString());
+        else System.out.println("Factura no encontrada");
+    }
+
 }
 
