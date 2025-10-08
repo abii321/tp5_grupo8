@@ -3,6 +3,7 @@ package ar.edu.unju.escmi.tp5.principal;
 import java.util.Scanner;
 
 import ar.edu.unju.escmi.tp5.collections.*;
+import ar.edu.unju.escmi.tp5.dominio.EncargadoDeVentas;
 
 public class SubmenuEncargVentas {
     public static void main(Scanner sc) {
@@ -22,11 +23,11 @@ public class SubmenuEncargVentas {
                 op = sc.nextInt(); sc.nextLine(); 
 
                 switch(op){
-                    case 1: CollectionFactura.mostrar(); break;
-                    case 2: System.out.println( "Total de todas las ventas: "+CollectionFactura.totalVentas() ); break;
+                    case 1: EncargadoDeVentas.mostrarVentas(); break;
+                    case 2: EncargadoDeVentas.mostrarTotalVentas(); break;
                     case 3: {
                         System.out.println("Ingrese codigo:"); int cod=sc.nextInt(); sc.nextLine();
-                        CollectionProducto.verificarStock(cod); 
+                        EncargadoDeVentas.stockActual(cod); 
                         break;
                     }
                     case 4: System.out.println("Saliendo del rol encargado de ventas..."); break;

@@ -3,8 +3,7 @@ package ar.edu.unju.escmi.tp5.principal;
 import java.util.Scanner;
 
 import ar.edu.unju.escmi.tp5.collections.CollectionCliente;
-import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
-import ar.edu.unju.escmi.tp5.dominio.Factura;
+import ar.edu.unju.escmi.tp5.dominio.Cliente;
 
 public class SubmenuCliente {
     public static void main(Scanner sc) {
@@ -25,9 +24,7 @@ public class SubmenuCliente {
                 switch(op){
                     case 1: {
                         System.out.println("Ingrese numero de factura: "); int nroFactura= sc.nextInt(); sc.nextLine();
-                        Factura f = CollectionFactura.buscar(nroFactura);
-                        if( f !=null) System.out.println(f.toString());
-                        else System.out.println("Factura no encontrada");
+                        Cliente.buscarFactura(nroFactura);
                         break;
                     }
                     case 2: System.out.println("Saliendo del rol cliente..."); break;
