@@ -8,10 +8,6 @@ public class ClienteMayorista extends Cliente {
         this.codCliente = codCliente;
     }
 
-    public  boolean tieneObraSocial(){
-        return false;
-    }
-
     @Override
     public int getCodCliente() {
         return codCliente;
