@@ -1,9 +1,16 @@
 package ar.edu.unju.escmi.tp5.principal;
 import java.util.Scanner;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionCliente;
+import ar.edu.unju.escmi.tp5.collections.CollectionEmpleado;
+
 public class MenuPrincipal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
+        CollectionCliente.precargarClientes();
+        CollectionEmpleado.precargarEmpleados();
+
         int op;
         do{
             System.out.println("......Sistema de Ventas......");

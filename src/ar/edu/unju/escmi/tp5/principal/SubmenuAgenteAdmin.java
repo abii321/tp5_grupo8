@@ -56,11 +56,16 @@ public class SubmenuAgenteAdmin {
 
                             factura.agregarProducto(p, cant);
                             
-                            System.out.println("¿Desea agregar otro producto?");
+                            System.out.println("¿Desea agregar otro producto? si/no");
                             ans = sc.nextLine();
                         }while(ans.equalsIgnoreCase("si"));
 
-                        AgenteAdministrativo.realizarVenta(factura);
+                        if(factura.getDetalles().size()>0) AgenteAdministrativo.realizarVenta(factura);
+                        else {
+                            System.out.println("Compra no realizada");
+                            Factura.setNroFactura(Factura.getNroFactura()-1);
+                        }
+
                         break;
                     }   
                     case 3: System.out.println("Saliendo del rol agente administrativo..."); break;

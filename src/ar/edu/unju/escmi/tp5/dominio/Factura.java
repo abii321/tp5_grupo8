@@ -25,6 +25,16 @@ public class Factura {
     public double getTotal() {
         return total;
     }
+    public List<DetalleFactura> getDetalles() {
+        return detalles;
+    }
+    public static int getNroFactura() {
+        return nroFactura;
+    }
+    
+    public static void setNroFactura(int nroFactura) {
+        Factura.nroFactura = nroFactura;
+    }
 
     public void agregarProducto(Producto p, int cantidad) {
         if (!cliente.comprobarStock(p, cantidad)) {
@@ -67,8 +77,22 @@ public class Factura {
 
         this.total = totalConDescuento;
     }
+
     @Override
     public String toString() {
-        return "Factura [numero=" + numero + ", cliente=" + cliente.getCodCliente() + ", fecha=" + fecha + ", total=" + total + "]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Factura Nº ").append(numero).append("\n");
+        sb.append("Cliente: ").append(cliente.getCodCliente()).append("\n");
+        sb.append("Fecha: ").append(fecha).append("\n");
+        sb.append("Total: $").append(String.format("%.2f", total)).append("\n");
+        sb.append("Detalles:\n");
+
+        for (DetalleFactura d : detalles) {
+            sb.append("- ").append(d.getProducto().getDescripcion())
+            .append(", cantidad: ").append(d.getCantidad())
+            .append(", subtotal: $").append(String.format("%.2f", d.getSubtotal()))
+            .append("\n");
+        }
+        return sb.toString();
     }
 }
