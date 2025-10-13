@@ -11,7 +11,7 @@ public class ClienteMinorista extends Cliente {
         this.tienePAMI = tienePAMI;
     }
 
-    public boolean tieneObraSocial(){
+    public boolean isTienePAMI() {
         return tienePAMI;
     }
 

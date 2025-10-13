@@ -3,10 +3,10 @@ package ar.edu.unju.escmi.tp5.dominio;
 import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
 public abstract class Cliente {
-    private String apellido;
-    private String nombre;
-    private String direccion;
-    private String contrasenia;
+    protected String apellido;
+    protected String nombre;
+    protected String direccion;
+    protected String contrasenia;
     
     public Cliente(String apellido, String nombre, String direccion, String contrasenia) {
         this.apellido = apellido;
@@ -28,8 +28,6 @@ public abstract class Cliente {
     public String getNombre() {
         return nombre;
     }
-
-    public abstract boolean tieneObraSocial();
     public abstract double calcularSubtotal(Producto p, int cantidad);
     public abstract boolean comprobarStock(Producto p, int cantidad);
 
