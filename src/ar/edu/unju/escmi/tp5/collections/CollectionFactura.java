@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import ar.edu.unju.escmi.tp5.dominio.Factura;
 
 public class CollectionFactura {
-    private static ArrayList<Factura> facturas = new ArrayList<>();
+    public static ArrayList<Factura> facturas = new ArrayList<>();
     
     public static void agregar(Factura factura) {
         if (factura != null && !facturas.contains(factura)) {
