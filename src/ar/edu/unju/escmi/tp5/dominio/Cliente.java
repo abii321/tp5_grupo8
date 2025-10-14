@@ -15,7 +15,7 @@ public abstract class Cliente {
         this.contrasenia = contrasenia;
     }
 
-    public abstract int getCodCliente();
+    public abstract int obtenerCodCliente();
 
     public String getContrasenia() {
         return contrasenia;
@@ -28,8 +28,6 @@ public abstract class Cliente {
     public String getNombre() {
         return nombre;
     }
-    public abstract double calcularSubtotal(Producto p, int cantidad);
-    public abstract boolean comprobarStock(Producto p, int cantidad);
 
     public static void buscarFactura(int nroFactura){
         Factura f = CollectionFactura.buscar(nroFactura);

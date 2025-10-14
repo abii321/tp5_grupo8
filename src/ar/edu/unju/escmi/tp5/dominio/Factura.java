@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
+
 public class Factura {
     private static int nroFactura = 0; 
     private int numero;
@@ -37,15 +39,11 @@ public class Factura {
     }
 
     public void agregarProducto(Producto p, int cantidad) {
-        if (!cliente.comprobarStock(p, cantidad)) {
+        if (!CollectionProducto.comprobarStockVenta(cliente, p, cantidad)) {
             System.out.println("No hay suficiente stock para el producto");
             return;
         }
-        double subtotal = cliente.calcularSubtotal(p, cantidad);
-        DetalleFactura detalle = new DetalleFactura();
-        detalle.setProducto(p);
-        detalle.setCantidad(cantidad);
-        detalle.setSubtotal(subtotal);
+        DetalleFactura detalle = new DetalleFactura(cantidad,p,cliente);
         detalles.add(detalle);
 
         if (cliente instanceof ClienteMayorista)
@@ -82,7 +80,7 @@ public class Factura {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Factura Nº ").append(numero).append("\n");
-        sb.append("Cliente: ").append(cliente.getCodCliente()).append("\n");
+        sb.append("Cliente: ").append(cliente.obtenerCodCliente()).append("\n");
         sb.append("Fecha: ").append(fecha).append("\n");
         sb.append("Total: $").append(String.format("%.2f", total)).append("\n");
         sb.append("Detalles:\n");
