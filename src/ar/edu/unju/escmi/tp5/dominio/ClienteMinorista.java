@@ -14,6 +14,9 @@ public class ClienteMinorista extends Cliente {
     public boolean isTienePAMI() {
         return tienePAMI;
     }
+    public int getDni(){
+        return dni;
+    }
 
     @Override
     public int obtenerCodCliente() {

@@ -17,6 +17,15 @@ public class CollectionEmpleado {
         }
         return false;
     }
+    public static String tipoEmpleado(String nombre, String contrasenia){
+        for(int i=0; i<empleados.size(); i++){
+            if( empleados.get(i).getNombre().equals(nombre) && empleados.get(i).getContrasenia().equals(contrasenia) ) {
+                if (empleados.get(i) instanceof AgenteAdministrativo) return "AgenteAdmin"; 
+                else return "EncargVentas";
+            }
+        }
+        return "";
+    }
 
     public static void precargarEmpleados(){
         Empleado e1 = new EncargadoDeVentas("Enzo", "1234");
