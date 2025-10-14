@@ -38,7 +38,7 @@ public class Factura {
         Factura.nroFactura = nroFactura;
     }
 
-    public void agregarProducto(Producto p, int cantidad) {
+    public void agregarDetalle(Producto p, int cantidad) {
         if (!CollectionProducto.comprobarStockVenta(cliente, p, cantidad)) {
             System.out.println("No hay suficiente stock para el producto");
             return;

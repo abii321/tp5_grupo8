@@ -54,7 +54,7 @@ public class SubmenuAgenteAdmin {
                             System.out.println("Ingrese cantidad:");
                             int cant = sc.nextInt(); sc.nextLine();
 
-                            factura.agregarProducto(p, cant);
+                            factura.agregarDetalle(p, cant);
                             
                             System.out.println("¿Desea agregar otro producto? si/no");
                             ans = sc.nextLine();
