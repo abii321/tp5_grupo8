@@ -70,7 +70,7 @@ public class Factura {
 
         double totalConDescuento = totalSinDescuento - descuentoProductos;
         // descuento por obra social
-        if ( cliente instanceof ClienteMinorista && ((ClienteMinorista)cliente).isTienePAMI())
+        if ( cliente instanceof ClienteMinorista && ((ClienteMinorista)cliente).isTienePAMI() && ((ClienteMinorista)cliente).getDni()!=0)
             totalConDescuento -= totalConDescuento * 0.10;
 
         this.total = totalConDescuento;

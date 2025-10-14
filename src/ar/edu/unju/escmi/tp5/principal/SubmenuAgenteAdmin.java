@@ -11,7 +11,7 @@ public class SubmenuAgenteAdmin {
         System.out.println("Ingrese nombre: ");String nombre=sc.nextLine(); 
         System.out.println("Ingrese contraseña: "); String passwd = sc.nextLine();
 
-        if(CollectionEmpleado.autenticacion(nombre,passwd)){
+        if(CollectionEmpleado.autenticacion(nombre,passwd) && CollectionEmpleado.tipoEmpleado(nombre,passwd).equals("AgenteAdmin")){
             int op;
             do{
                 System.out.println("Menu de Administrativo");
