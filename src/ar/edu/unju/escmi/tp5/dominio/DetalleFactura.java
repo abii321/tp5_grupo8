@@ -5,24 +5,26 @@ public class DetalleFactura {
     private Producto producto;
     private double subtotal;
 
-    public DetalleFactura() {
-    }
-    public void setCantidad(int cantidad) {
+    public DetalleFactura(int cantidad, Producto producto, Cliente c) {
         this.cantidad = cantidad;
-    }
-    public void setProducto(Producto producto) {
         this.producto = producto;
+        this.subtotal = calcularSubtotal(c);
     }
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
-    }
+
     public double getSubtotal() {
         return subtotal;
     }
     public Producto getProducto() {
         return producto;
     }
-    public double getCantidad(){
+    public int getCantidad(){
         return cantidad;
+    }
+
+    private double calcularSubtotal(Cliente c){
+        if(c instanceof ClienteMayorista) 
+            return this.producto.getPrecioUnit() * (cantidad * 10) / 2; 
+        else
+            return this.producto.getPrecioUnit() * cantidad;
     }
 }

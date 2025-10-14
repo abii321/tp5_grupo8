@@ -12,22 +12,15 @@ public class CollectionCliente {
 
     public static boolean autenticacion(int cod, String contrasenia){
         for(int i=0; i<clientes.size(); i++){
-            if( clientes.get(i).getCodCliente()== cod && clientes.get(i).getContrasenia().equals(contrasenia) ) 
+            if( clientes.get(i).obtenerCodCliente()== cod && clientes.get(i).getContrasenia().equals(contrasenia) ) 
                 return true;
         }
         return false;
     }
 
-    public static boolean buscarPorCodigo(int cod){
+    public static Cliente buscarCliente(int cod){
         for(int i=0; i<clientes.size(); i++){
-            if(clientes.get(i).getCodCliente() == cod ) return true;
-        }
-        return false;
-    }
-
-    public static Cliente buscar(int cod){
-        for(int i=0; i<clientes.size(); i++){
-            if(clientes.get(i).getCodCliente() == cod ) return clientes.get(i);
+            if(clientes.get(i).obtenerCodCliente() == cod ) return clientes.get(i);
         }
         return null;
     }

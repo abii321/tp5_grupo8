@@ -33,7 +33,7 @@ public class SubmenuAgenteAdmin {
                     }
                     case 2:{
                         System.out.println("Ingrese codigo/DNI del cliente segun corresponda:"); int cod=sc.nextInt(); sc.nextLine(); 
-                        Cliente c = CollectionCliente.buscar(cod);
+                        Cliente c = CollectionCliente.buscarCliente(cod);
                         
                         if(c==null) {
                             System.out.println("El cliente no existe");

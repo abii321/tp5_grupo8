@@ -30,12 +30,9 @@ public class CollectionFactura {
 
     public static void mostrar(){
         if(facturas.isEmpty()) System.out.println("No hay ninguna factura");
-        else CollectionFactura.listar();
-    }
-
-    private static void listar(){
-        for(int i=0; i<facturas.size(); i++){
-            System.out.println(facturas.get(i).toString());
+        else{
+            for(int i=0; i<facturas.size(); i++)
+                System.out.println(facturas.get(i).toString());
         }
     }
 }
