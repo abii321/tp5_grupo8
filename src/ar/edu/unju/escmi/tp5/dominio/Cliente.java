@@ -15,8 +15,6 @@ public abstract class Cliente {
         this.contrasenia = contrasenia;
     }
 
-    public abstract int obtenerCodCliente();
-
     public String getContrasenia() {
         return contrasenia;
     }
@@ -34,6 +32,8 @@ public abstract class Cliente {
         if( f !=null) System.out.println(f.toString());
         else System.out.println("Factura no encontrada");
     }
+    
+    public abstract int obtenerCodCliente();
 
 }
 
